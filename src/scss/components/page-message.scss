@@ -1,0 +1,395 @@
+@import "./general.scss";
+
+.page-message {
+    min-height: 100vh;
+    padding-bottom: 8rem;
+
+    .messages {
+        padding-top: 5rem;
+        transition: 400ms;
+        overflow: hidden;
+
+        .messages__checkbox {
+            display: none;
+        }
+
+        &.edit {
+            padding-left: 4rem;
+
+            .messages__options {
+                display: grid;
+            }
+
+            .messages__item {
+                position: relative;
+
+                &::before {
+                    left: -4rem;
+                    width: 110%;
+                }
+            }
+
+            .messages__checkbox {
+                display: block;
+                position: absolute;
+                left: -20px;
+                top: 40%;
+                
+                .checkbox {
+                    input[type="checkbox"] {
+                        appearance: none;
+                        -webkit-appearance: none;
+                        background-color: #fff;
+                        border: 2px solid $color-primary;
+                        box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+                        padding: 9px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .checkbox input:checked {
+                    background-color: $color-primary;
+                    border: 2px solid $color-primary;
+                }
+
+                .checkbox input:checked::after {
+                    content: '\f00c';
+                    font-family: "fontAwesome";
+                    position: absolute;
+                    top: 4px;
+                    left: 5px;
+                    font-size: 12px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .messages__options {
+        display: none;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        grid-template-columns: repeat(3, max-content);
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem;
+        background-color: #fff;
+        animation: message-options 400ms forwards;
+        
+        @keyframes message-options {
+            0% {
+                transform: translateY(4rem);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        button {
+            border: none;
+            background-color: #fff;
+            text-align: center;
+            font-family: $font-family-primary;
+            font-weight: 600;
+            letter-spacing: 0.15px;
+            color: $color-primary;
+        }
+
+        .delete-message {
+            color: rgb(240, 47, 47);
+        }
+    }
+
+    .messages__container {
+        position: relative;
+        width: 100%;
+        height: 125px;
+        border-bottom: 1px solid get-color(rgba(0,0,0,0.1));
+
+        &.delete {
+            animation: delete 1s forwards;
+
+            @keyframes delete {
+                0% {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+
+                100% {
+                    opacity: 0;
+                    transform: translateX(-100%);
+                }
+            }
+        }
+
+        &.read-message, &.read-drag-message {
+            h2 {
+                font-weight: 400;
+            }
+
+            small {
+                color: $color-black-light;
+            }
+
+            .no-read {
+                display: flex;
+            }
+
+            .read {
+                display: none;
+            }
+        }
+
+        &.filter-no-read {
+            display: none;
+        }
+
+        &.checked {
+            width: 100%;
+        }
+    }
+
+    .messages__item {
+        padding: 2rem 2rem;
+        position: absolute;
+        display: flex;
+        min-width: 100%;
+        background-color: #fff;
+        transition: 400ms;
+
+        &::before {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: #CCCCCC;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .messages__read {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #6F9AD4;
+        height: 100%;
+        width: 90px;
+        z-index: -1;
+
+        .no-read, .read {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            i {
+                color: $color-primary;
+                font-size: 24px;
+                margin-bottom: 8px;
+            }
+
+            p {
+                font-family: $font-family-primary;
+                font-size: 14px;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: $color-primary;
+            }
+        }
+
+        .no-read {
+            display: none;
+        }
+    }
+
+    .messages__delete {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgb(240, 47, 47);
+        height: 100%;
+        width: 90px;
+        z-index: -1;
+
+        i {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-family: $font-family-primary;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+
+    .messages__title {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        text-align: center;
+        grid-column-gap: 12px;
+
+        h2 {
+            font-family: $font-family-primary;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.15px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 36ch;
+            text-align: left;
+        }
+
+        small {
+            font-family: $font-family-primary;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.1px;
+            color: #6F9AD4;
+        }
+    }
+
+    .messages__description {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        align-items: flex-start;
+        grid-column-gap: 12px;
+
+        p {
+            font-family: $font-family-primary;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.25px;
+            color: $color-black-light;
+            width: 100%;
+            max-width: 300px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+        }
+
+        i {
+            color: $color-primary;
+            transform: rotate(46deg);
+            margin-top: 4px;
+            margin-right: 8px;
+            font-size: 18px;
+        }
+    }
+
+    .modal {
+        .modal__box {
+            border-radius: 24px;
+        }
+
+        .modal__content {
+            h4 {
+                font-family: $font-family-primary;
+                font-weight: 600;
+                color: $color-black;
+                font-size: 20px;
+                letter-spacing: 0.25px;
+                text-align: center;
+                margin-bottom: 3rem;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    position: absolute;
+                    bottom: -20px;
+                    left: 0;
+                    background-color: #CCCCCC;
+                }
+            }
+
+            .submit-radio {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 1px;
+                    position: absolute;
+                    top: 5px;
+                    left: 0;
+                    background-color: #CCCCCC;
+                }
+
+                .close-filter {
+                    font-family: $font-family-primary;
+                    font-size: 14px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    color: $color-primary;
+                    background-color: transparent;
+                    border: none;
+                    margin-top: 3rem;
+                }
+            }
+
+            .input-radio {
+                padding: 2rem 0 2rem 3rem;
+                position: relative;
+
+                label {
+                    font-family: $font-family-primary;
+                    font-size: 16px;
+                }
+
+                &:first-of-type {
+                    padding-top: 1rem;
+                }
+
+                + .input-radio {
+                    &::before {
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        background-color: #CCCCCC;
+                    }
+                }
+
+                input[type="radio"] {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    background-color: #fff;
+                    border: 2px solid $color-primary;
+                    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+                    padding: 4px;
+                    border-radius: 50%;
+                    margin-right: 3px;
+                }
+
+                input[type="radio"]:checked {
+                    background-color: $color-primary;
+                }   
+            }
+        }
+    }
+}
