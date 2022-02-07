@@ -7,10 +7,11 @@ Nessa projeto encontra-se o front-end de uma página do aplicativo da Christus.
 
 
 A página tem como objetivo ser a tela principal de mensagens, onde o aluno poderar:
-- Excluir a mensagem;
-- Marcar como lida;
-- Marcar como não lida;
-- Filtrar entre: Todas, Lidas e Não Lidas.
+- Excluir a mensagem; (Arrastar a mensagem da direita para esquerda)
+- Marcar como lida; (Se a mensagem estiver como não lida, arrastar a mensagem da esquerda para direita)
+- Marcar como não lida; (Se a mensagem estiver como lida, arrastar a mensagem da esquerda para direita)
+- Filtrar entre: Todas, Lidas e Não Lidas. (Clicar em Filtrar no cabeçalho)
+- Função de marcar todos e ler ou apagar. (Clicar em Editar no cabeçalho)
 
 <p float="left">
 <img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile1.png"/>
