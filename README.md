@@ -13,8 +13,8 @@ A página tem como objetivo ser a tela principal de mensagens, onde o aluno pode
 <img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile1.png"/>
 <img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile2.png"/>
 <img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile3.png"/>
-<img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile4.jpeg"/>
 <img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile5.jpeg"/>
+<img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile4.jpeg"/>
 <img width="350" height="700" src="https://github.com/jardelima/messages/blob/main/src/images/mobile6.jpeg"/>
 </p>
 
