@@ -3,7 +3,10 @@
 Nessa projeto encontra-se o front-end de uma página do aplicativo da Christus.
 
 
-A página tem como objetivo ser a tela principal de mensagens, onde o aluno poderarar:
+*OBS: Layout apenas mobile.
+
+
+A página tem como objetivo ser a tela principal de mensagens, onde o aluno poderar:
 - Excluir a mensagem;
 - Marcar como lida;
 - Marcar como não lida;
